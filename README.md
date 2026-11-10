@@ -28,9 +28,12 @@ El trabajo incluye:
 
 | Archivo | Descripción |
 |---|---|
-| `mainSemana4_3.ipynb` | Notebook de Jupyter con todo el análisis, organizado en secciones |
+| `main.ipynb` | Notebook de Jupyter con todo el análisis, organizado en secciones |
 | `Informe.pdf` | Informe con los principales hallazgos y conclusiones |
 | `ENFR 2018 - Base usuario.txt` | Base de datos usuario de la ENFR 2018 |
+| `manual_base_usuario_enfr2018.pdf` | Manual de uso de la base de datos usuario (INDEC) |
+| `Cuestionario.pdf` | Cuestionario de la ENFR 2018 |
+| `enfr_2018_resultados_definitivos.pdf` | Informe de resultados definitivos de la ENFR 2018 |
 | `requirements.txt` | Librerías necesarias para ejecutar el notebook |
 | `README.md` | Este archivo |
 
@@ -38,7 +41,7 @@ El trabajo incluye:
 
 - Python 3.10 o superior.
 - `pip` (incluido con Python).
-- Conexión a internet: el notebook descarga la base desde este repositorio.
+- Conexión a internet: el notebook descarga la base de datos desde la rama `main` de este repositorio.
 
 ## Instalación
 
@@ -53,12 +56,14 @@ También se puede descargar como ZIP desde GitHub (botón **Code → Download ZI
 
 **2. (Recomendado) Crear y activar un entorno virtual:**
 
-En Windows:
+En Windows (símbolo del sistema o PowerShell):
 
 ```bash
 python -m venv venv
 venv\Scripts\activate
 ```
+
+Si PowerShell bloquea la activación por la política de ejecución de scripts, ejecutar antes `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`, o usar el símbolo del sistema (`cmd`). Si el comando `python` no se reconoce, probar con `py`.
 
 En Linux o macOS:
 
@@ -67,7 +72,7 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-**3. Instalar las dependencias:**
+**3. Instalar las dependencias** (en todos los sistemas operativos, con el entorno virtual activado):
 
 ```bash
 pip install -r requirements.txt
@@ -81,7 +86,7 @@ pip install -r requirements.txt
 jupyter notebook
 ```
 
-**2.** En el navegador, abrir el archivo `mainSemana4_3.ipynb`.
+**2.** En el navegador, abrir el archivo `main.ipynb`.
 
 **3.** Ejecutar todas las celdas en orden desde el menú **Kernel → Restart & Run All** (en Jupyter Notebook 7: **Run → Run All Cells**).
 
@@ -99,4 +104,7 @@ También puede abrirse con Visual Studio Code (con la extensión de Jupyter) o J
 ## Posibles problemas
 
 - **Error al importar `statsmodels`** (`TypeError: deprecate_kwarg() got an unexpected keyword argument 'klass'`): se debe a una incompatibilidad con pandas 3. Se resuelve instalando las versiones del `requirements.txt` (`pip install -r requirements.txt`) y reiniciando el kernel.
-- **El notebook no encuentra los datos:** verificar la conexión a internet, ya que la base se descarga desde la URL del repositorio en la sección 2.
+- **El notebook no encuentra los datos:** la base se descarga en la sección 2 desde
+  `https://raw.githubusercontent.com/Acaide04/Analisis_ENFR_2018/refs/heads/main/ENFR%202018%20-%20Base%20usuario.txt`.
+  Si no hay conexión a internet, se puede usar el archivo incluido en el repositorio: en la celda de carga de la sección 2, reemplazar el valor de `url` por `"ENFR 2018 - Base usuario.txt"` (el notebook tiene que estar en la misma carpeta que el archivo).
+- **`pip install` falla con el error `externally-managed-environment`** (frecuente en algunas distribuciones de Linux): crear y activar el entorno virtual del paso 2 de la instalación antes de instalar las dependencias.
