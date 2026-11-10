@@ -83,6 +83,11 @@ pip install -r requirements.txt
 **1. Abrir Jupyter desde la carpeta del repositorio:**
 
 ```bash
+jupyter-lab
+```
+Si no funciona con el anterior comando, probar con el siguiente 
+
+```bash
 jupyter notebook
 ```
 
@@ -94,12 +99,6 @@ El notebook es secuencial: cada sección usa los dataframes creados en las anter
 
 También puede abrirse con Visual Studio Code (con la extensión de Jupyter) o JupyterLab, seleccionando como kernel el entorno virtual creado en la instalación.
 
-## Datos
-
-- **Fuente:** INDEC, *4.° Encuesta Nacional de Factores de Riesgo 2018, base de datos usuario*.
-- **Formato:** archivo de texto con campos separados por `|`.
-- **Tamaño:** 29.224 registros y 287 variables.
-- **Documentación:** *Manual de uso de la base de datos usuario* (INDEC, octubre de 2019).
 
 ## Posibles problemas
 
