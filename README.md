@@ -1,1 +1,102 @@
-# Analisis_ENFR_2018
+# Análisis de la Encuesta Nacional de Factores de Riesgo 2018
+
+Trabajo Práctico Especial de **Fundamentos de la Ciencia de Datos** (cursada 2026).
+
+**Grupo 10**
+- Joan Martin Lenti
+- Valentina Bianchi
+- Manuel Taboada
+
+## Descripción
+
+Análisis exploratorio y estadístico de la base usuario de la 4.° Encuesta Nacional de Factores de Riesgo (ENFR 2018), publicada por el INDEC y la Secretaría de Gobierno de Salud de la Nación.
+
+El trabajo incluye:
+
+1. Carga de la base y limpieza de los datos.
+2. Barrido general de las variables, organizado según los bloques del manual de la base usuario.
+3. Planteo y validación de tres hipótesis propias:
+   - **Univariada:** olvido de la medicación en personas hipertensas.
+   - **Bivariada:** uso de sal en las comidas y prevalencia de hipertensión.
+   - **Multivariada:** colesterol elevado, consumo de frutas y verduras y percepción de la propia alimentación.
+4. Validación de las tres hipótesis del enunciado:
+   - **Univariada:** consumo diario de frutas y verduras frente a la recomendación de la OMS.
+   - **Bivariada:** índice de masa corporal según el nivel de actividad física.
+   - **Multivariada:** relación lineal entre IMC, presión sistólica, perímetro de cintura, edad y glucemia.
+
+## Contenido del repositorio
+
+| Archivo | Descripción |
+|---|---|
+| `mainSemana4_3.ipynb` | Notebook de Jupyter con todo el análisis, organizado en secciones |
+| `Informe.pdf` | Informe con los principales hallazgos y conclusiones |
+| `ENFR 2018 - Base usuario.txt` | Base de datos usuario de la ENFR 2018 |
+| `requirements.txt` | Librerías necesarias para ejecutar el notebook |
+| `README.md` | Este archivo |
+
+## Requisitos
+
+- Python 3.10 o superior.
+- `pip` (incluido con Python).
+- Conexión a internet: el notebook descarga la base desde este repositorio.
+
+## Instalación
+
+**1. Clonar el repositorio:**
+
+```bash
+git clone https://github.com/Acaide04/Analisis_ENFR_2018.git
+cd Analisis_ENFR_2018
+```
+
+También se puede descargar como ZIP desde GitHub (botón **Code → Download ZIP**) y descomprimirlo.
+
+**2. (Recomendado) Crear y activar un entorno virtual:**
+
+En Windows:
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+En Linux o macOS:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+**3. Instalar las dependencias:**
+
+```bash
+pip install -r requirements.txt
+```
+
+## Ejecución
+
+**1. Abrir Jupyter desde la carpeta del repositorio:**
+
+```bash
+jupyter notebook
+```
+
+**2.** En el navegador, abrir el archivo `mainSemana4_3.ipynb`.
+
+**3.** Ejecutar todas las celdas en orden desde el menú **Kernel → Restart & Run All** (en Jupyter Notebook 7: **Run → Run All Cells**).
+
+El notebook es secuencial: cada sección usa los dataframes creados en las anteriores, por lo que las celdas deben ejecutarse en orden, de principio a fin.
+
+También puede abrirse con Visual Studio Code (con la extensión de Jupyter) o JupyterLab, seleccionando como kernel el entorno virtual creado en la instalación.
+
+## Datos
+
+- **Fuente:** INDEC, *4.° Encuesta Nacional de Factores de Riesgo 2018, base de datos usuario*.
+- **Formato:** archivo de texto con campos separados por `|`.
+- **Tamaño:** 29.224 registros y 287 variables.
+- **Documentación:** *Manual de uso de la base de datos usuario* (INDEC, octubre de 2019).
+
+## Posibles problemas
+
+- **Error al importar `statsmodels`** (`TypeError: deprecate_kwarg() got an unexpected keyword argument 'klass'`): se debe a una incompatibilidad con pandas 3. Se resuelve instalando las versiones del `requirements.txt` (`pip install -r requirements.txt`) y reiniciando el kernel.
+- **El notebook no encuentra los datos:** verificar la conexión a internet, ya que la base se descarga desde la URL del repositorio en la sección 2.
