@@ -82,6 +82,11 @@ pip install -r requirements.txt
 
 **1. Abrir Jupyter desde la carpeta del repositorio:**
 
+Windows
+```bash
+jupyter lab
+```
+Linux/MacOs
 ```bash
 jupyter-lab
 ```
